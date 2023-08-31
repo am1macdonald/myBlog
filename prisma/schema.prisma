@@ -14,7 +14,6 @@ model Post {
   id            Int         @id @default(autoincrement())
   title         String
   content       String      @db.Text
-  slug          String      @unique
   publishedDate DateTime    @default(now())
   isPublished   Boolean     @default(false)
   author        Author      @relation(fields: [authorId], references: [id])
@@ -22,15 +21,18 @@ model Post {
   category      Category?   @relation(fields: [categoryId], references: [id])
   categoryId    Int?
   tags          Tag[]       @relation("PostToTag")
-  PostToTag     PostToTag[]
+  postToTag     PostToTag[]
+  image         PostImage[]
 }
 
 model Author {
-  id    Int     @id @default(autoincrement())
-  name  String
-  email String  @unique
-  bio   String?
-  posts Post[]
+  id     Int     @id @default(autoincrement())
+  name   String
+  email  String  @unique
+  bio    String?
+  posts  Post[]
+  userId Int
+  user   User    @relation(fields: [userId], references: [id])
 }
 
 model Tag {
@@ -55,12 +57,38 @@ model Category {
   posts Post[]
 }
 
-// newsletter registrations
-
 model NewsletterRegistration {
   id        Int      @id @default(autoincrement())
   email     String   @unique
   createdAt DateTime @default(now())
   confirmed Boolean  @default(false)
   uuid      String?  @unique @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+}
+
+// images for posts stored in amazon s3
+model PostImage {
+  id         Int      @id @default(autoincrement())
+  bucketName String
+  key        String
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  post       Post     @relation(fields: [postId], references: [id])
+  postId     Int
+}
+
+// users for authoring posts
+model User {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  name      String?
+  password  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  role      Role     @default(USER)
+  author    Author[]
+}
+
+enum Role {
+  USER
+  ADMIN
 }

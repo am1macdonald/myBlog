@@ -1,9 +1,13 @@
-<h1 class="text-3xl font-bold underline">
-    Hello world!
-</h1>
+<script lang="ts">
+    import type { PageData } from '$lib/types';
+    import FeaturePost from "$lib/components/FeaturePost.svelte";
+    import LatestPosts from "$lib/components/LatestPosts.svelte";
 
-<style lang="postcss">
-    :global(html) {
-        background-color: theme(colors.gray.100);
-    }
-</style>
+    export let data: PageData;
+</script>
+
+<FeaturePost></FeaturePost>
+<hr class="!border-t-2" />
+
+<LatestPosts></LatestPosts>
+<div></div>

@@ -11,3 +11,20 @@
   font-family: 'Montserrat';
   src: url('/fonts/Montserrat/Montserrat-VariableFont_wght.ttf');
 }
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('/fonts/OpenSans/OpenSans-VariableFont_wdth,wght.ttf');
+}
+
+@font-face {
+  font-family: 'Playfair';
+  src: url('/fonts/Playfair/PlayfairDisplay-VariableFont_wght.ttf');
+}
+
+@font-face {
+  font-family: 'LibreBaskerville';
+  src: url('/fonts/LibreBaskerville/LibreBaskerville-Regular.ttf');
+}
+
+html, body { @apply h-full overflow-hidden; }
