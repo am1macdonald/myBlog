@@ -1,7 +1,6 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 @font-face {
   font-family: 'Bebas Neue';
   src: url('/fonts/Bebas_Neue/BebasNeue-Regular.ttf');
@@ -27,4 +26,7 @@
   src: url('/fonts/LibreBaskerville/LibreBaskerville-Regular.ttf');
 }
 
-html, body { @apply h-full overflow-hidden; }
+html,
+body {
+  @apply h-full overflow-hidden;
+}

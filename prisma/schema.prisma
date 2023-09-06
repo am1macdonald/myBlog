@@ -15,6 +15,7 @@ model Post {
   title         String
   content       String      @db.Text
   publishedDate DateTime    @default(now())
+  lastEdited    DateTime    @default(now())
   isPublished   Boolean     @default(false)
   author        Author      @relation(fields: [authorId], references: [id])
   authorId      Int
@@ -78,14 +79,26 @@ model PostImage {
 
 // users for authoring posts
 model User {
-  id        Int      @id @default(autoincrement())
-  email     String   @unique
-  name      String?
-  password  String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  role      Role     @default(USER)
-  author    Author[]
+  id                 Int                  @id @default(autoincrement())
+  email              String               @unique
+  name               String
+  password           String
+  createdAt          DateTime             @default(now())
+  updatedAt          DateTime             @updatedAt
+  defaultPassword    Boolean              @default(true)
+  role               Role                 @default(USER)
+  author             Author[]
+  passwordResetToken PasswordResetToken[]
+}
+
+model PasswordResetToken {
+  id                       Int       @id @default(autoincrement())
+  token                    String    @unique
+  createdAt                DateTime  @default(now())
+  updatedAt                DateTime  @updatedAt
+  passwordResetTokenExpiry DateTime?
+  user                     User      @relation(fields: [userId], references: [id])
+  userId                   Int
 }
 
 enum Role {

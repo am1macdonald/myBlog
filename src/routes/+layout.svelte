@@ -1,27 +1,13 @@
-<script>
+<script lang="ts">
 	import '../app.scss';
-	import { AppShell } from '@skeletonlabs/skeleton';
-	import { AppBar } from '@skeletonlabs/skeleton';
-	import NavActions from "$lib/components/NavActions.svelte";
+	import { initializeStores, Modal } from '@skeletonlabs/skeleton';
+	import hljs from 'highlight.js';
+	import 'highlight.js/styles/github-dark.css';
+	import { storeHighlightJs } from '@skeletonlabs/skeleton';
+
+	storeHighlightJs.set(hljs);
+	initializeStores();
 </script>
 
-<AppShell regionPage="relative" slotPageHeader="sticky top-0 z-10">
-	<svelte:fragment slot="header">
-		<AppBar>
-			Frequently Lost
-			<svelte:fragment slot="trail">
-				<NavActions />
-			</svelte:fragment>
-		</AppBar>
-	</svelte:fragment>
-	<!-- (sidebarLeft) -->
-	<!-- (sidebarRight) -->
-	<!-- (pageHeader) -->
-	<!-- Router Slot -->
-	<slot />
-	<!-- ---- / ---- -->
-	<svelte:fragment slot="pageFooter">
-		2023© Adam MacDonald
-	</svelte:fragment>
-	<!-- (footer) -->
-</AppShell>
+<Modal />
+<slot />

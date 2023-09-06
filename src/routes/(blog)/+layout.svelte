@@ -17,5 +17,11 @@
 			</svelte:fragment>
 		</AppBar>
 	</svelte:fragment>
+	<svelte:fragment slot="sidebarRight"
+		><div class="bg-amber-50 w-64">
+			Stuff goes in hurrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr
+		</div></svelte:fragment
+	>
+	<slot />
 	<svelte:fragment slot="pageFooter">2023© Adam MacDonald</svelte:fragment>
 </AppShell>
