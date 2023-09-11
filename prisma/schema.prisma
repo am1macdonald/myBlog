@@ -81,6 +81,7 @@ model PostImage {
 model User {
   id                 Int                  @id @default(autoincrement())
   email              String               @unique
+  userName           String               @unique
   name               String
   password           String
   createdAt          DateTime             @default(now())
@@ -89,6 +90,7 @@ model User {
   role               Role                 @default(USER)
   author             Author[]
   passwordResetToken PasswordResetToken[]
+  archived           Boolean              @default(false)
 }
 
 model PasswordResetToken {

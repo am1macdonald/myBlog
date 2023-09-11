@@ -1,16 +1,15 @@
 import type { LoginResponse } from '$lib/types/LoginResponse';
-import type { ActionFailure, Redirect, RequestEvent } from '@sveltejs/kit';
+import type { ActionFailure, Actions, Redirect, RequestEvent } from '@sveltejs/kit';
 import { fail, redirect } from '@sveltejs/kit';
-import type { PageServerLoad, Actions } from './$types';
 import { prisma } from '$lib/server/prisma';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import { SECRET_JWT } from '$env/static/private';
 import type { User } from '@prisma/client';
 import { JWT_TOKEN_NAME } from '$lib/constants';
+import type { PageServerLoad } from './$types';
 
 export const load: PageServerLoad = async ({ locals }) => {
-	console.log(locals);
 	if (locals.user) {
 		throw redirect(307, `/admin/${locals.user.id}`);
 	}
@@ -69,7 +68,7 @@ export const actions: Actions = {
 				maxAge: 60 * 60 * 24
 			});
 
-			throw redirect(303, `/admin/${user.id}`);
+			throw redirect(303, `/dashboard`);
 		} finally {
 			/* empty */
 		}

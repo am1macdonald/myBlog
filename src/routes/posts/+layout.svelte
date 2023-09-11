@@ -1,16 +1,14 @@
 <script>
 	import { AppBar, AppShell } from '@skeletonlabs/skeleton';
 	import NavActions from '$lib/components/layout/NavActions.svelte';
+	import NavBrand from '$lib/components/layout/NavBrand.svelte';
 </script>
 
 <AppShell regionpage="relative" slotpageheader="sticky top-0 z-10">
 	<svelte:fragment slot="header">
 		<AppBar>
 			<svelte:fragment slot="lead">
-				<a href="/" class="flex items-center">
-					<img src="/images/logo.webp" alt="Logo" class="h-10 w-auto" />
-					<span class="ml-2 text-xl font-bold"> Frequently Lost </span>
-				</a>
+				<NavBrand />
 			</svelte:fragment>
 			<svelte:fragment slot="trail">
 				<NavActions />

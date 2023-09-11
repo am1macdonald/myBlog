@@ -1,32 +1,40 @@
-<script>
+<script lang="ts">
 	import { AppBar, AppShell, LightSwitch } from '@skeletonlabs/skeleton';
+	import Sidebar from '$lib/components/layout/sidebar/Sidebar.svelte';
+	import NavLinks from '$lib/components/layout/sidebar/NavLinks.svelte';
+	import SecondaryLinks from '$lib/components/layout/sidebar/SecondaryLinks.svelte';
+	import type { TokenUser } from '$lib/types/UserToken';
+
+	export let data;
+
+	const { user }: { user: TokenUser } = data;
 </script>
 
 <AppShell regionpage="relative" slotpageheader="sticky top-0 z-10">
 	<svelte:fragment slot="header">
 		<AppBar>
 			<svelte:fragment slot="lead">
-				<a href="/static" class="flex items-center">
+				<a href="/" class="flex items-center">
 					<img src="/images/logo.webp" alt="Logo" class="h-10 w-auto" />
 					<span class="ml-2 text-xl font-bold"> Frequently Lost </span>
 				</a>
 			</svelte:fragment>
 			<svelte:fragment slot="trail">
-				<a href="/admin/logout">logout</a>
+				<a href="/logout">logout</a>
 				<LightSwitch />
 			</svelte:fragment>
 		</AppBar>
 	</svelte:fragment>
 	<svelte:fragment slot="sidebarLeft"
-		><div class="bg-amber-50 w-64">
-			Stuff goes in hurrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr
+		><div id="sidebarLeft" class="w-64 h-full hidden lg:block">
+			<Sidebar>
+				<NavLinks {user} slot="top" />
+				{#if user.role !== 'ADMIN'}
+					<SecondaryLinks slot="bottom" />
+				{/if}
+			</Sidebar>
 		</div></svelte:fragment
 	>
-	<!-- (sidebarRight) -->
-	<!-- (pageHeader) -->
-	<!-- Router Slot -->
 	<slot />
-	<!-- ---- / ---- -->
 	<svelte:fragment slot="pageFooter">2023© Adam MacDonald</svelte:fragment>
-	<!-- (footer) -->
 </AppShell>

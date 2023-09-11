@@ -27,5 +27,5 @@ export const load: PageServerLoad = async ({ cookies }) => {
 		}
 	}
 
-	throw redirect(300, '/admin/login');
+	throw redirect(300, '/login');
 };

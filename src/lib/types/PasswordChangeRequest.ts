@@ -1,4 +1,6 @@
+import type { User } from '@prisma/client';
+
 export type PasswordChangeRequest = {
 	password: string;
-	user: number;
+	user: Pick<User, 'id'>;
 };

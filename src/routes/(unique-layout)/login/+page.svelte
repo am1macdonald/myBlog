@@ -4,30 +4,31 @@
 
 <div class="h-full w-full flex flex-col justify-center items-center">
 	<div class="container w-96">
+		<h1 class="text-3xl font-bold">Login</h1>
 		<form class="card form flex flex-col justify-center items-start gap-12 p-8" method="post">
 			<div class="flex flex-col justify-center items-start w-full h-full gap-4">
 				<label class="label">
-					<span>New Password</span>
+					<span>Email</span>
 					<input
-						value={form?.password ?? ''}
+						value={form?.email ?? ''}
 						class="input"
-						name="password"
-						id="password"
-						title="password"
-						type="password"
+						name="email"
+						id="email"
+						title="email"
+						type="text"
 						required
 					/>
 				</label>
 
 				<label class="label">
-					<span>Confirm password</span>
+					<span>Password</span>
 					<input
-						value={form?.confirmPassword ?? ''}
-						id="confirmPassword"
+						value={form?.password ?? ''}
+						id="password"
 						class="input"
-						name="confirmPassword"
-						title="confirmPassword"
-						type="password"
+						name="password"
+						title="password"
+						type="text"
 						required
 					/>
 				</label>
@@ -40,7 +41,7 @@
 				</div>
 			{/if}
 			<div class="w-full h-full flex justify-end">
-				<button type="submit" class="btn variant-filled">Submit</button>
+				<button type="submit" class="btn variant-filled">Login</button>
 			</div>
 		</form>
 	</div>

@@ -6,13 +6,13 @@
 	<svelte:fragment slot="header">
 		<AppBar>
 			<svelte:fragment slot="lead">
-				<a href="/static" class="flex items-center">
+				<a href="/" class="flex items-center">
 					<img src="/images/logo.webp" alt="Logo" class="h-10 w-auto" />
 					<span class="ml-2 text-xl font-bold"> Frequently Lost </span>
 				</a>
 			</svelte:fragment>
 			<svelte:fragment slot="trail">
-				<a href="/admin/logout">logout</a>
+				<a href="/logout">logout</a>
 				<LightSwitch />
 			</svelte:fragment>
 		</AppBar>

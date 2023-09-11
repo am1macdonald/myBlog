@@ -18,7 +18,6 @@ export const actions = {
 				message: 'No file was uploaded'
 			});
 		}
-		console.log(formData);
 		// const buffer = Buffer.from(await (formData.fileToUpload as File).arrayBuffer());
 		//
 		// const name = crypto.randomBytes(32).toString('hex');
@@ -28,12 +27,11 @@ export const actions = {
 		// 	Body: buffer,
 		// 	ContentType: (formData.fileToUpload as File).type
 		// };
-		// console.log(params);
 		//
 		// const command = new PutObjectCommand(params);
 		//
 		// const sendResult = await s3Client.send(command);
-		// console.log(sendResult);
+
 		//
 		// const { fileToUpload } = formData as { fileToUpload: File };
 	}
