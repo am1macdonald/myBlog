@@ -1,8 +1,13 @@
 <script lang="ts">
 </script>
 
-<div class="h-full w-full bg-amber-600 flex flex-col justify-evenly items-center p-8">
-	<slot name="top" />
-	<slot name="middle"><div class="h-1/3"></div></slot>
-	<slot name="bottom"><div class="h-1/3"></div></slot>
+<div
+	class="bg-surface-50-900-token h-full w-full flex flex-col justify-evenly items-center p-8 overflow-y-auto"
+>
+	<slot name="user" />
+	<div class="h-full">
+		<slot name="top" />
+		<slot name="middle" />
+		<slot name="bottom" />
+	</div>
 </div>

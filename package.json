@@ -7,6 +7,7 @@
 	"private": true,
 	"scripts": {
 		"dev": "vite dev",
+		"docker-start": "docker start blog-dev",
 		"build": "vite build",
 		"preview": "vite preview",
 		"test": "npm run test:integration && npm run test:unit",
@@ -19,6 +20,7 @@
 	},
 	"devDependencies": {
 		"@aws-sdk/client-s3": "^3.400.0",
+		"@floating-ui/dom": "^1.5.1",
 		"@playwright/test": "^1.37.1",
 		"@prisma/client": "^5.2.0",
 		"@skeletonlabs/skeleton": "^2.0.0",
@@ -39,12 +41,15 @@
 		"eslint": "^8.48.0",
 		"eslint-config-prettier": "^9.0.0",
 		"eslint-plugin-svelte": "^2.33.0",
+		"highlight.js": "^11.8.0",
 		"jsonwebtoken": "^9.0.2",
 		"marked": "^7.0.5",
+		"nanoid": "^4.0.2",
 		"postcss": "^8.4.29",
 		"postcss-load-config": "^4.0.1",
 		"prettier": "^3.0.3",
 		"prettier-plugin-svelte": "^3.0.3",
+		"prettier-plugin-tailwindcss": "^0.5.4",
 		"prisma": "^5.2.0",
 		"sass": "^1.66.1",
 		"sharp": "^0.32.5",
@@ -58,9 +63,5 @@
 		"vitest": "^0.34.3",
 		"zod": "^3.22.2"
 	},
-	"type": "module",
-	"dependencies": {
-		"@floating-ui/dom": "^1.5.1",
-		"highlight.js": "^11.8.0"
-	}
+	"type": "module"
 }

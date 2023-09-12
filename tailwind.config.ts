@@ -21,7 +21,10 @@ const config = {
 	plugins: [
 		forms,
 		skeleton({
-			themes: { custom: [myCustomTheme] }
+			themes: {
+				preset: ['wintry'],
+				custom: [myCustomTheme]
+			}
 		})
 	]
 } satisfies Config;

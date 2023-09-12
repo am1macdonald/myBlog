@@ -23,7 +23,7 @@ model Post {
   categoryId    Int?
   tags          Tag[]       @relation("PostToTag")
   postToTag     PostToTag[]
-  image         PostImage[]
+  image         PostImage?
 }
 
 model Author {
@@ -32,7 +32,7 @@ model Author {
   email  String  @unique
   bio    String?
   posts  Post[]
-  userId Int
+  userId Int     @unique
   user   User    @relation(fields: [userId], references: [id])
 }
 
@@ -74,23 +74,34 @@ model PostImage {
   createdAt  DateTime @default(now())
   updatedAt  DateTime @updatedAt
   post       Post     @relation(fields: [postId], references: [id])
-  postId     Int
+  postId     Int      @unique
 }
 
 // users for authoring posts
 model User {
-  id                 Int                  @id @default(autoincrement())
-  email              String               @unique
-  userName           String               @unique
+  id                 Int                 @id @default(autoincrement())
+  email              String              @unique
+  userName           String              @unique
   name               String
+  avatar             Avatar?
   password           String
-  createdAt          DateTime             @default(now())
-  updatedAt          DateTime             @updatedAt
-  defaultPassword    Boolean              @default(true)
-  role               Role                 @default(USER)
-  author             Author[]
-  passwordResetToken PasswordResetToken[]
-  archived           Boolean              @default(false)
+  createdAt          DateTime            @default(now())
+  updatedAt          DateTime            @updatedAt
+  defaultPassword    Boolean             @default(true)
+  role               Role                @default(USER)
+  author             Author?
+  passwordResetToken PasswordResetToken?
+  archived           Boolean             @default(false)
+}
+
+model Avatar {
+  id        Int      @id @default(autoincrement())
+  bucket    String
+  key       String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  user      User     @relation(fields: [userId], references: [id])
+  userId    Int      @unique
 }
 
 model PasswordResetToken {
@@ -100,7 +111,7 @@ model PasswordResetToken {
   updatedAt                DateTime  @updatedAt
   passwordResetTokenExpiry DateTime?
   user                     User      @relation(fields: [userId], references: [id])
-  userId                   Int
+  userId                   Int       @unique
 }
 
 enum Role {

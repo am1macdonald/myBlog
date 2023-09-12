@@ -12,13 +12,9 @@
 	$: filteredData = sourceData ?? [];
 	$: {
 		tableSimple = {
-			// A list of heading labels.
 			head: Object.keys(sourceData[0]),
-			// The data visibly shown in your table body UI.
 			body: tableMapperValues(filteredData, Object.keys(sourceData[0])),
-			// Optional: The data returned when interactive is enabled and a row is clicked.
 			meta: tableMapperValues(sourceData, Object.keys(sourceData[0])),
-			// Optional: A list of footer labels.
 			foot: [
 				'Total',
 				'',
@@ -28,7 +24,9 @@
 			]
 		};
 	}
-	const selectionHandler = (event) => {};
+	const selectionHandler = (event: CustomEvent) => {
+		console.log(event.detail);
+	};
 	const filterTerms = ({ detail }: CustomEvent) => {
 		if (detail.value === '') {
 			filteredData = sourceData;
@@ -54,7 +52,7 @@
 	<div class="w-96">
 		<SearchBar on:inputChanged={filterTerms} />
 	</div>
-	<a href="/" class="btn variant-filled">New User</a>
+	<a href="/admin/users/new" class="btn variant-filled">New User</a>
 </div>
 
 <Table interactive={true} on:selected={selectionHandler} source={tableSimple} />
