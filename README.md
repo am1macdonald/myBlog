@@ -1,3 +1,33 @@
+# The Bloginator
+
+## Description
+This is a CMS-style blog application. It features a user administration dashboard that allows the Admin user to manage all aspects of content on the app. From other users to posts and comments. Users that are not admins require an account to access the app. Once they have an account
+they can create and manage their own posts by creating an Author profile.
+
+## Table of Contents
+* [Installation](#installation)
+* [Usage](#usage)
+* [License](#license)
+* [Questions](#questions)
+
+## Installation
+To install the necessary dependencies, run the following command:
+```
+npm i
+```
+
+## Usage
+To use this app a user need to have an account set up for them by an Admin. Otherwise, they can fork the repo and host it themselves.
+
+## License
+This project is licensed under the MIT license.
+
+## Questions
+If you have any questions about the repo, open an issue or contact me directly at <a href="mailto:{{ email }}"> email </a>. You can find more of my work at [ github ](https://github.com/am1macdonald)
+
+
+<hr>
+
 # create-svelte
 
 Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
