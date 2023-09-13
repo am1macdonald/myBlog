@@ -8,17 +8,18 @@
 		<h1 class="text-4xl font-bold mb-4">New User</h1>
 	</div>
 	<div class="container mx-auto">
-		<form bind:this={form} class="flex flex-col gap-4" method="post">
+		<form bind:this={form} class="flex flex-col gap-4" method="post" enctype="multipart/form-data">
 			<label class="label">
 				<span>Username</span>
 				<input
 					id="username"
 					name="username"
 					class="input"
-					title="Input (text)"
+					title="username"
 					type="text"
 					placeholder="Jane Doe"
 					required
+					value={form?.username ?? ''}
 				/>
 			</label>
 			<label class="label">
@@ -27,7 +28,7 @@
 					id="name"
 					name="name"
 					class="input"
-					title="Input (text)"
+					title="name"
 					type="text"
 					placeholder="input text"
 					required
@@ -39,7 +40,7 @@
 					id="email"
 					name="email"
 					class="input"
-					title="Input (email)"
+					title="email"
 					type="email"
 					placeholder="john@example.com"
 					autocomplete="email"
@@ -95,7 +96,7 @@
 			{/if}
 			<label class="label">
 				<span>User Type</span>
-				<select name="userType" class="select">
+				<select name="userRole" class="select">
 					<option value="USER">user</option>
 					<option value="ADMIN">admin</option>
 				</select>
@@ -103,7 +104,7 @@
 
 			<label class="label">
 				<span>Avatar</span>
-				<input name="avatar" class="input" type="file" accept="image/png" />
+				<input name="avatar" class="input" type="file" accept="image/png, image/jpeg" />
 			</label>
 			<div class="flex justify-end">
 				<button class="btn variant-filled" type="submit"> Submit </button>
