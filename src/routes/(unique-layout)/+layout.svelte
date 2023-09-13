@@ -1,5 +1,11 @@
-<script>
+<script lang="ts">
 	import { AppBar, AppShell, LightSwitch } from '@skeletonlabs/skeleton';
+	import type { TokenUser } from '$lib/types/UserToken';
+	export let data;
+	let user: TokenUser | undefined;
+	$: {
+		user = data.user;
+	}
 </script>
 
 <AppShell regionpage="relative" slotpageheader="sticky top-0 z-10">
@@ -12,7 +18,9 @@
 				</a>
 			</svelte:fragment>
 			<svelte:fragment slot="trail">
-				<a href="/logout">logout</a>
+				{#if user}
+					<a href="/logout">logout</a>
+				{/if}
 				<LightSwitch />
 			</svelte:fragment>
 		</AppBar>

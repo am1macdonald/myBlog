@@ -28,7 +28,7 @@
 						class="input"
 						name="password"
 						title="password"
-						type="text"
+						type="password"
 						required
 					/>
 				</label>
