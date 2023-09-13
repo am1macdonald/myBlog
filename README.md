@@ -1,4 +1,4 @@
-# The Bloginator
+# Blog CMS
 
 ## Description
 This is a CMS-style blog application. It features a user administration dashboard that allows the Admin user to manage all aspects of content on the app. From other users to posts and comments. Users that are not admins require an account to access the app. Once they have an account
