@@ -10,3 +10,12 @@ vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 .idea
 .vscode/extensions.json
+/prisma/migrations/20230828104335_init/migration.sql
+/prisma/migrations/20230901122022_/migration.sql
+/prisma/migrations/20230904143033_/migration.sql
+/prisma/migrations/20230905002725_/migration.sql
+/prisma/migrations/20230910205211_/migration.sql
+/prisma/migrations/20230910213100_/migration.sql
+/prisma/migrations/20230911101634_/migration.sql
+/prisma/migrations/20230911102008_/migration.sql
+/prisma/migrations/migration_lock.toml
