@@ -1,9 +1,12 @@
 import { prisma } from '$lib/server/prisma';
 import type { RequestHandler } from '@sveltejs/kit';
+import type { Author, Post } from '@prisma/client';
 import { getSignedImageUrl } from '$lib/server/sThreeClient';
 import { json } from '@sveltejs/kit';
 import { z } from 'zod';
-import type PostData from '$lib/types/PostData';
+
+type PostToReturn = Omit<Post, 'isPublished' | 'authorId' | 'categoryId'> &
+	Omit<Author, 'userId'> & { ImageURL: string };
 
 export const GET: RequestHandler = async ({ url }) => {
 	// getting images from s3 https://www.youtube.com/watch?v=eQAIojcArRY&t=653s
@@ -41,7 +44,7 @@ export const GET: RequestHandler = async ({ url }) => {
 			}
 		});
 
-		const postsToReturn: Promise<PostData>[] = post.map(async (post): Promise<PostData> => {
+		const postsToReturn: Promise<PostToReturn>[] = post.map(async (post): Promise<PostToReturn> => {
 			const { author, image, ...rest } = post;
 			const postData = exclude(rest, ['isPublished', 'authorId', 'categoryId']);
 			const { bucketName, key } = image ?? {};
@@ -63,13 +66,10 @@ export const GET: RequestHandler = async ({ url }) => {
 		return json(await Promise.all(postsToReturn));
 	} catch (error) {
 		console.log(error);
-		return new Response('Internal Server Error', { status: 500 });
+		return json({ error: 'Internal Server Error' }, 500);
 	}
 };
 
 function exclude<User, Key extends keyof User>(user: User, keys: Key[]): Omit<User, Key> {
-	// Omit function from prisma docs
-	// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-	// @ts-ignore
 	return Object.fromEntries(Object.entries(user).filter(([key]) => !keys.includes(key)));
 }
