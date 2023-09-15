@@ -1,21 +1,9 @@
-import { prisma } from '$lib/server/prisma';
 import type { PageServerLoad } from './$types';
 
-export const load: PageServerLoad = async () => {
-	const response = await prisma.post.findMany({
-		where: {
-			isPublished: true
-		},
-		include: {
-			author: {
-				select: {
-					name: true
-				}
-			}
-		}
-	});
-
-	// getting images from s3 https://www.youtube.com/watch?v=eQAIojcArRY&t=653s
-
-	return { feed: response };
+export const load: PageServerLoad = async ({ fetch }) => {
+	const getPosts = async () => {
+		const response = await fetch('/api/posts');
+		return await response.json();
+	};
+	return { posts: getPosts() };
 };
