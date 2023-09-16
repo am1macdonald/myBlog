@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+SiteMap: http://www.frequentlylost.com/sitemap.xml
