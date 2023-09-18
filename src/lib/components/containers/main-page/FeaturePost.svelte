@@ -12,19 +12,19 @@
 		class="h-fit lg:h-[32rem] flex flex-col lg:flex-row justify-center items-center container"
 	>
 		<div class="bg-surface-800 w-screen md:w-auto flex justify-center items-center">
-			<div
-				id="img-div"
-				class="md:relative md:max-w-full-sm md:h-[32rem] md:w-[32rem] w-auto h-auto"
-			>
-				<img src={post.ImageURL} alt="thing" />
+			<div id="img-div" class="md:relative md:h-[32rem] md:w-[32rem] w-auto h-auto">
+				<img src={post.imageURL} alt="thing" />
 			</div>
 		</div>
 		<div
-			class="h-full w-screen md:w-[32rem] lg:w-[36rem] bg-surface-50 text-surface-900 flex flex-col justify-between p-8 pt-16 pb-16 text-xl max-w-prose"
+			class="h-full w-screen md:w-[32rem] lg:w-[36rem] bg-surface-50 text-surface-900 flex flex-col gap-4 justify-between p-8 pt-16 pb-16 text-xl max-w-prose"
 		>
-			<h3 class="text-3xl">{post.title}</h3>
-			{@html marked.parse(summary)}
 			<span class="font-semibold text-left">{format(new Date(post.publishedDate), 'PPP')}</span>
+			<h3 class="text-3xl font-display font-semibold">{post.title}</h3>
+			{#if summary}
+				{@html marked.parse(summary)}
+			{/if}
+			<span>{post.name}</span>
 		</div>
 	</div>
 </a>

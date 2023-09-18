@@ -7,7 +7,6 @@ import type PostData from '$lib/types/PostData';
 
 export const GET: RequestHandler = async ({ url }) => {
 	// getting images from s3 https://www.youtube.com/watch?v=eQAIojcArRY&t=653s
-
 	try {
 		const query = url.searchParams;
 		const post = await prisma.post.findMany({
@@ -49,13 +48,13 @@ export const GET: RequestHandler = async ({ url }) => {
 				return {
 					...postData,
 					...author,
-					ImageURL: await getSignedImageUrl(bucketName, key, 60 * 60)
+					imageURL: await getSignedImageUrl(bucketName, key, 60 * 60)
 				};
 			} else {
 				return {
 					...postData,
 					...author,
-					ImageURL: ''
+					imageURL: ''
 				};
 			}
 		});
