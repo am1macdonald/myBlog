@@ -8,7 +8,7 @@
   "scripts": {
     "dev": "vite dev",
     "docker-start": "docker start blog-dev",
-    "build": "vite build",
+    "build": "prisma install && vite build",
     "preview": "vite preview",
     "test": "npm run test:integration && npm run test:unit",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
@@ -40,6 +40,7 @@
     "autoprefixer": "^10.4.15",
     "bcrypt": "^5.1.1",
     "crypto-js": "^4.1.1",
+    "date-fns": "^2.30.0",
     "eslint": "^8.48.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-svelte": "^2.33.0",
@@ -63,10 +64,10 @@
     "vite": "^4.4.9",
     "vite-plugin-tailwind-purgecss": "^0.1.3",
     "vitest": "^0.34.3",
-    "zod": "^3.22.2",
-    "date-fns": "^2.30.0"
+    "zod": "^3.22.2"
   },
   "type": "module",
   "dependencies": {
+    "@vercel/analytics": "^1.0.2"
   }
 }
