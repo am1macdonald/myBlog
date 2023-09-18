@@ -13,7 +13,7 @@ async function main() {
 			email: 'am1macdonald+admin@gmail.com',
 			userName: 'secretAdminMan',
 			name: 'Adam MacDonald',
-			password: await bcrypt.hash('admin', PASSWORD_SALT_ROUNDS),
+			password: await bcrypt.hash(process.env.DEFAULT_PASSWORD, PASSWORD_SALT_ROUNDS),
 			role: 'ADMIN'
 		}
 	});
