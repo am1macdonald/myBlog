@@ -1,7 +1,7 @@
 <script lang="ts">
-	import FeaturePost from '$lib/components/containers/FeaturePost.svelte';
-	import LatestPosts from '$lib/components/containers/LatestPosts.svelte';
-	import OlderPosts from '$lib/components/containers/OlderPosts.svelte';
+	import FeaturePost from '$lib/components/containers/main-page/FeaturePost.svelte';
+	import LatestPosts from '$lib/components/containers/main-page/LatestPosts.svelte';
+	import OlderPosts from '$lib/components/containers/main-page/OlderPosts.svelte';
 	import Hero from '$lib/components/layout/Hero.svelte';
 	import type PostData from '$lib/types/PostData';
 
