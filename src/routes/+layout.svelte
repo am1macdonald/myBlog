@@ -12,6 +12,25 @@
 	const drawer = getDrawerStore();
 </script>
 
+<svelte:head>
+	<title>Frequently Lost</title>
+	<meta
+		name="description"
+		content="A candid dive into web development, personal musings, and tech adventures. From Svelte Kit to embedded programming, experience the raw journey of a developer unfiltered."
+	/>
+	<meta
+		name="keywords"
+		content="web development, Svelte Kit, coding journey, embedded programming, blog, tech rants"
+	/>
+	<meta property="og:title" content="Frequently Lost - Web Development etc." />
+	<meta
+		property="og:description"
+		content="Join the coding journey, from tackling Svelte Kit to navigating the nuances of embedded programming. Raw, real, and always insightful."
+	/>
+	<!--	<meta property="og:image" content="URL_TO_YOUR_BLOG_PREVIEW_IMAGE_HERE">-->
+	<meta property="og:url" content="https://www.frequentlylost.com" />
+</svelte:head>
+
 <Drawer position="bottom" height="h-fit">
 	<ul class="flex flex-col h-full w-full">
 		<a href="/" on:click={drawer.close}>
