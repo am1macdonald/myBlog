@@ -17,14 +17,8 @@
 
 <h3 align="center">Adam's Blog</h3>
 
-This is a CMS-style blog application. 
-It features a user administration dashboard 
-that allows the Admin user to manage all aspects 
-of content on the app. From other users to posts 
-and comments. Users that are not admins require 
-an account to access the app. Once they have an 
-account they can create and manage their own posts 
-by creating an Author profile.
+Welcome to my personal blog, a no-frills space dedicated to sharing my coding journey. Eschewing the complexities of CMS platforms, this blog centers on the reader.
+Dive in to explore my thoughts, lessons, and adventures in coding!
 
 <br />
 <a href="https://github.com/am1macdonald/myblog"><strong>Explore the docs »</strong></a>
@@ -75,14 +69,9 @@ by creating an Author profile.
     <img src="static/images/previewimage.png" alt="Preview Image">
   </a>
 
-Welcome to my personal blog, a no-frills space dedicated to sharing my coding journey. Eschewing the complexities of CMS platforms, this blog centers on the reader.
-
 * Design: Clean and intuitive. Simplicity is key.
 * Content: Primarily posts, with a comment section in the pipeline.
 * UX: Seamless reading experience across devices, ensuring accessibility.
-
-Dive in to explore my thoughts, lessons, and adventures in coding!
-
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
