@@ -14,7 +14,11 @@
 
 <div class="flex flex-col justify-center items-center gap-6 lg:gap-10 p-2 lg:p-24">
 	<div class="max-w-xl">
-		<img src={post.imageURL} alt="a robot thrusting a bottle of oil toward the viewer" />
+		<img
+			src={post.imageURL}
+			class="md:h-[32rem] md:w-[32rem]"
+			alt="a robot thrusting a bottle of oil toward the viewer"
+		/>
 	</div>
 	<hr />
 	<div class="font-display text-3xl max-w-xl">
