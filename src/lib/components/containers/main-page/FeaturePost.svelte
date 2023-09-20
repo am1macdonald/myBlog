@@ -12,8 +12,14 @@
 		class="h-fit lg:h-[32rem] flex flex-col lg:flex-row justify-center items-center container"
 	>
 		<div class="bg-surface-800 w-screen md:w-auto flex justify-center items-center">
-			<div id="img-div" class="md:relative md:h-[32rem] md:w-[32rem] w-auto h-auto">
-				<img src={post.imageURL} alt="thing" />
+			<div id="img-div" class="md:relative w-auto h-auto">
+				<img
+					src={post.imageURL}
+					alt="thing"
+					class="md:h-[32rem] md:w-[32rem]"
+					width="671"
+					height="671"
+				/>
 			</div>
 		</div>
 		<div
