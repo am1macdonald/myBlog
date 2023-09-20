@@ -9,14 +9,14 @@
 
 <!-- PROJECT LOGO -->
 <br />
-<div style="display: flex; flex-direction: column; justify-content: center; align-items: center">
+<div>
+  <p align="center">
   <a align="center" href="https://github.com/am1macdonald/myblog">
     <img src="static/images/logo_large.webp" alt="Logo" width="200" height="200">
   </a>
 
 <h3 align="center">Adam's Blog</h3>
 
-  <p align="center">
 This is a CMS-style blog application. 
 It features a user administration dashboard 
 that allows the Admin user to manage all aspects 
