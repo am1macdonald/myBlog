@@ -5,6 +5,7 @@
 </script>
 
 <div class="w-full">
+	<div class="pt-2 pb-2"><span class="text-xl"><a href="/editor/new"> New Post </a> </span></div>
 	<ul class="flex flex-col justify-start items-start">
 		<li>
 			<a href="/dashboard">Dashboard</a>
@@ -22,9 +23,6 @@
 		{:else}
 			<li>
 				<a href="/posts">Posts</a>
-			</li>
-			<li>
-				<a href="/users">Users</a>
 			</li>
 			<li>
 				<a href="/settings">Settings</a>
