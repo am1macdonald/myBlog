@@ -5,10 +5,12 @@
 </script>
 
 <div class="w-full">
-	<div class="pt-2 pb-2"><span class="text-xl"><a href="/editor/new"> New Post </a> </span></div>
+	<div class="pt-2 pb-2">
+		<span class="text-xl"><a href="/admin/editor/new"> New Post </a> </span>
+	</div>
 	<ul class="flex flex-col justify-start items-start">
 		<li>
-			<a href="/dashboard">Dashboard</a>
+			<a href="/admin/dashboard">Dashboard</a>
 		</li>
 		{#if user.role === 'ADMIN'}
 			<li>
@@ -22,10 +24,10 @@
 			</li>
 		{:else}
 			<li>
-				<a href="/posts">Posts</a>
+				<a href="/admin/posts">Posts</a>
 			</li>
 			<li>
-				<a href="/settings">Settings</a>
+				<a href="/admin/settings">Settings</a>
 			</li>
 		{/if}
 

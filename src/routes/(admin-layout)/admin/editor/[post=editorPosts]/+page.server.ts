@@ -3,11 +3,9 @@ import type { Actions, RequestEvent } from '@sveltejs/kit';
 import { fail } from '@sveltejs/kit';
 
 export const actions = {
-	save: async ({ request }: RequestEvent) => {
-		console.log(request);
-		const formData = (await request.formData()) as FormData;
+	save: async ({ cookies, request }: RequestEvent) => {
 		const formEntries = Object.fromEntries((await request.formData()) as FormData);
-		formData.forEach((value, key) => console.log(key, value));
+		console.log(cookies.getAll());
 		if (
 			!(formEntries['post-image'] as File).name ||
 			(formEntries['post-image'] as File).name === 'undefined'
@@ -17,5 +15,9 @@ export const actions = {
 				message: 'No file was uploaded'
 			});
 		}
+		return fail(500, {
+			error: true,
+			message: 'This route is not implemented yet'
+		});
 	}
 } satisfies Actions;

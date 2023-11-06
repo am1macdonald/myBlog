@@ -6,6 +6,7 @@
 	import type { TokenUser } from '$lib/types/UserToken';
 
 	export let data;
+	console.log(data);
 
 	const { user }: { user: TokenUser } = data;
 </script>
